@@ -1,0 +1,1 @@
+{"name": "swat-bot","version": "1.0.0","description": "A Discord bot for SWAT operations","main": "index.js","dependencies": {"discord.js": "^14.0.0"}}
