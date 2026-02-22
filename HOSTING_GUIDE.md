@@ -1,96 +1,52 @@
-# Hosting Guide for SWAT Bot
+# Hosting Guide for a Discord Bot
 
-This guide provides comprehensive instructions on how to host the SWAT Discord Bot on various platforms, including Railway, Replit, Heroku, Oracle Cloud, and VPS options.
+This guide provides comprehensive instructions on how to host a Discord bot using GitHub and deploy it to various platforms, including Replit, Railway, Heroku, and VPS providers.
 
 ## Table of Contents
-1. [Railway](#railway)
-2. [Replit](#replit)
-3. [Heroku](#heroku)
-4. [Oracle Cloud](#oracle-cloud)
-5. [VPS Options](#vps-options)
+1. [Prerequisites](#prerequisites)
+2. [Hosting on Replit](#hosting-on-replit)
+3. [Hosting on Railway](#hosting-on-railway)
+4. [Hosting on Heroku](#hosting-on-heroku)
+5. [Hosting on VPS Providers](#hosting-on-vps-providers)
 
 ---
 
-### Railway
-1. Sign up for a [Railway](https://railway.app) account.
-2. Create a new project and select a template to start from.
-3. Connect your GitHub repository containing the SWAT Bot code.
-4. Configure your environment variables:
-   - Add `TOKEN` for your Discord bot token.
-5. Deploy your project by clicking the "Deploy" button.
-6. Monitor logs and interact with your bot via Discord.
+## Prerequisites
+- A GitHub account
+- Basic knowledge of Git and the command line
+- Node.js and npm installed (for Node.js bots)
 
-### Replit
-1. Go to [Replit](https://replit.com) and sign up or log in.
-2. Create a new Repl and choose the Node.js template.
-3. Import your SWAT Bot code into the Repl by uploading files or using Git.
-4. Install necessary dependencies using npm:
-   ```bash
-   npm install
-   ```
-5. Set up your environment variables in the Secrets section:
-   - Add `TOKEN` for your Discord bot token.
-6. Run your Repl to start the bot and view the output in the console.
+## Hosting on Replit
+1. Go to [Replit](https://replit.com) and create an account or log in.
+2. Click on [New Repl](https://replit.com/repls) and select the template for Node.js or Python, depending on your bot's language.
+3. Import your bot’s code from GitHub by clicking on the `Import from GitHub` button.
+4. Ensure your bot's token and credentials are set in an environment variable for security.
+5. Click on `Run` to start your bot.
+6. To keep your bot running 24/7, you can use services like UptimeRobot to ping your Replit URL periodically.
 
-### Heroku
-1. Create a [Heroku](https://www.heroku.com) account.
-2. Install the Heroku CLI and log in using `heroku login`.
-3. Create a new app:
-   ```bash
-   heroku create your-app-name
-   ```
-4. Set up your environment variables:
-   ```bash
-   heroku config:set TOKEN=your_discord_bot_token
-   ```
-5. Deploy the code from your GitHub repo:
-   ```bash
-   git push heroku main
-   ```
-6. Scale your app to run:
-   ```bash
-   heroku ps:scale worker=1
-   ```
-7. Monitor logs with:
-   ```bash
-   heroku logs --tail
-   ```
+## Hosting on Railway
+1. Go to [Railway](https://railway.app) and sign up.
+2. Start a new project and select `Deploy from GitHub`.
+3. Connect your GitHub repository that contains the bot code.
+4. Set environment variables for your bot token in Railway's environment settings.
+5. Click on `Deploy` and your bot will be hosted on a Railway server.
 
-### Oracle Cloud
-1. Sign up for an [Oracle Cloud](https://www.oracle.com/cloud/) account.
-2. Launch a new virtual machine instance and choose your desired OS.
-3. SSH into your instance:
-   ```bash
-   ssh username@your-instance-ip
-   ```
-4. Install Node.js and Git on your instance:
-   ```bash
-   curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-   sudo apt-get install -y nodejs git
-   ```
-5. Clone your SWAT Bot code repository:
-   ```bash
-   git clone https://github.com/yourusername/SWAT-Bot.git
-   cd SWAT-Bot
-   npm install
-   ```
-6. Set your environment variables:
-   ```bash
-   export TOKEN=your_discord_bot_token
-   ```
-7. Start the bot:
-   ```bash
-   node your-bot-file.js
-   ```
+## Hosting on Heroku
+1. Create a [Heroku account](https://signup.heroku.com/).
+2. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) on your machine.
+3. Navigate to your bot's directory in the terminal and run `heroku create` to create a new Heroku app.
+4. Set your bot's secrets as environment variables using `heroku config:set TOKEN=your_token`.
+5. Deploy your bot by running `git push heroku main` (adjust the branch name if necessary).
+6. Use the command `heroku ps:scale worker=1` to run your bot as a worker.
 
-### VPS Options
-1. Choose a VPS provider like DigitalOcean, Linode, or AWS.
-2. Set up a new server instance and SSH into it.
-3. Install Node.js and Git as mentioned in the Oracle Cloud section.
-4. Clone your SWAT Bot repository and install dependencies.
-5. Set the environment variable for your Discord bot token.
-6. Run the bot using Node.js.
+## Hosting on VPS Providers
+1. Choose a VPS provider (e.g., DigitalOcean, Linode, AWS).
+2. Create a VPS instance and connect to it using SSH.
+3. Install Node.js, npm, or your bot’s necessary dependencies on the VPS.
+4. Clone your GitHub repository using `git clone` command.
+5. Set environment variables on the server for your bot's configuration.
+6. Run your bot using a process manager like `pm2` to keep it running. Use `pm2 start your-bot-file.js`.
 
 ---
 
-These instructions may change over time, be sure to check the respective platforms' documentation for the latest updates.
+Following these steps will ensure that your Discord bot is hosted and running smoothly on your chosen platform. Make sure to keep your code and dependencies updated to prevent any issues.
